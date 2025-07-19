@@ -2,15 +2,9 @@ import socket
 
 host = (socket.gethostname(), 34567)
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-s.bind(host)
+a = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+a.connect(host)
+print(f"connected to {host}")
 
-s.listen()
-print('yeah')
-
-while True:
-	conn, addr = s.accept()
-	print('wtf', addr)
-	res = b'hello bro'
-	conn.send(res)
+msg = a.recv(1024)
+print(msg.decode("UTF-8")
