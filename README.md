@@ -13,12 +13,12 @@ All messages are end-to-end encrypted. Even our server has no way to decrypt the
 Orma is a minimal, open-source desktop messenger for Windows.  
 It’s built for people who value privacy, speed, and simplicity.
 
-—  No logs or analytics
-—   No email or phone number required — just a username and password
-—  End-to-end encryption by default
-—  Fast and lightweight interface
-—  TLS encryption powered by OpenSSL
-— p2p
+-  No logs or analytics
+-   No email or phone number required — just a username and password
+-  End-to-end encryption by default
+-  Fast and lightweight interface
+-  TLS encryption powered by OpenSSL
+- p2p
 ---
 
 ## Why Orma?
