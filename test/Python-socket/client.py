@@ -1,10 +1,15 @@
-import socket
+import socket, ssl
 
-host = (socket.gethostname(), 34567)
+HOST = '127.0.0.1'
+PORT = 4443
 
-a = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-a.connect(host)
-print(f"connected to {host}")
+context = ssl.create_default_context()
+context.check_hostname = False
+context.verify_mode = ssl.CERT_NONE  # для локаля
 
-msg = a.recv(1024)
-print(msg.decode("UTF-8")
+with socket.create_connection((HOST, PORT)) as sock:
+    with context.wrap_socket(sock, server_hostname=HOST) as ssock:
+        print("[+] TLS-соединение установлено")
+        ssock.send("hello bitch")
+        data = ssock.recv(1024).decode()
+        print("[Сервер]:", data)
